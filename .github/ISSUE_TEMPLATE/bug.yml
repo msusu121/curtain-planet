@@ -1,0 +1,14 @@
+name: Bug report
+description: Report an application issue
+body:
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Role, steps, expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Browser, device and safe screenshots
+      description: Do not include customer data, passwords or payment credentials.

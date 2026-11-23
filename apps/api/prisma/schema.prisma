@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+}
+enum Role {
+  SUPER_ADMIN
+  SALESPERSON
+  POS
+  CUTTING
+  TAILOR
+  RINGS_PACKAGING
+  STOREKEEPER
+}
+model User {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  email String @unique
+  passwordHash String
+  role Role
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  sessions Session[]
+}
+model Session {
+  tokenHash String @id @db.Char(64)
+  userId String @db.Uuid
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  @@index([userId])
+  @@index([expiresAt])
+}
+model Customer {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  phone String @unique
+  location String?
+  createdAt DateTime @default(now())
+}
+model AuditEvent {
+  id String @id @default(uuid()) @db.Uuid
+  actorId String? @db.Uuid
+  entityType String
+  entityId String
+  action String
+  data Json
+  createdAt DateTime @default(now())
+  @@index([entityType, entityId, createdAt])
+}

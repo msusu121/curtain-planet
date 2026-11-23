@@ -1,0 +1,22 @@
+{
+  "name": "curatin-planet",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @curatin/api",
+    "dev:web": "npm run dev -w @curatin/web",
+    "test": "npm run test -w @curatin/api",
+    "typecheck": "npm run typecheck --workspaces",
+    "build": "npm run build --workspaces",
+    "db:generate": "npm run db:generate -w @curatin/api",
+    "db:migrate": "npm run db:migrate -w @curatin/api",
+    "admin:bootstrap": "npm run admin:bootstrap -w @curatin/api",
+    "test:http": "npm run test:http -w @curatin/api",
+    "test:integration": "npm run test:integration -w @curatin/api"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

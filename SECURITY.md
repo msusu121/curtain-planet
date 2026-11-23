@@ -1,0 +1,1 @@
+Report vulnerabilities privately to the repository owner. Never post credentials or customer records in public issues. Production rollout requires authentication, role and assignment authorization, private media access, audit enforcement, backups and verified payment integrations. This foundation is not production-ready.

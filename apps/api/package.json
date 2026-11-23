@@ -1,0 +1,39 @@
+{
+  "name": "@curatin/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "admin:bootstrap": "tsx src/bootstrap-admin.ts",
+    "test:http": "node --experimental-strip-types --test test/http/*.test.ts",
+    "test:integration": "node --experimental-strip-types --test test/integration/*.test.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.0.0",
+    "@prisma/adapter-pg": "^7.0.0",
+    "pg": "^8.16.3",
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.2.0",
+    "redis": "^5.9.0",
+    "minio": "^8.0.6",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "prisma": "^7.0.0",
+    "typescript": "^5.9.3",
+    "tsx": "^4.20.6",
+    "@types/node": "^22.19.0",
+    "@types/express": "^5.0.5",
+    "@types/cors": "^2.8.19",
+    "@types/pg": "^8.15.6"
+  }
+}
